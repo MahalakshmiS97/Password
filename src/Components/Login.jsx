@@ -20,7 +20,6 @@ function Login() {
             })
             if(res.status===200){
                 toast.success(res.data.message)
-           
                 sessionStorage.setItem('user',JSON.stringify(res.data.user))
                 navigate('/dashboard')
             }
@@ -40,14 +39,14 @@ function Login() {
 
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+        <Form.Control type="password" placeholder="Password"/>
       </Form.Group>
       <center><Button variant="primary" onClick={handleLogin}>
         Submit
       </Button>
-      <div>Forgot Password</div>
+      <div className="pointer" onClick={()=>navigate('/forgotpassword')}>Forgot Password</div>
       <br/>
-      <div>New User? Signup</div>
+      <div className="pointer" onClick={()=>navigate('/signup')}>New User? Signup</div>
       </center>
     </Form>
   </div>
